@@ -1,5 +1,5 @@
 import { clusterLayer, clusterCountLayer, spotLabelLayer } from "./layers.js";
-// import { csv2geojson } from "./util.js";
+import { csv2geojson } from "./util.js";
 
 // const spreadsheetCSVExportUrl =
 //   "https://docs.google.com/spreadsheets/d/e/2PACX-1vScMm_fKfKVravIvXN3NnG9gRRdsti00wEWjTWfebqe8P9uxKMIsn5pcNE2dLDSf3ac8Udm3RydkMw0/pub?gid=0&single=true&output=csv";
@@ -11,10 +11,6 @@ const fetchDataAsGeoJSON = () => {
 const main = async () => {
   const geojsonObject = await fetchDataAsGeoJSON();
   const map = new window.geolonia.Map("#map");
-  const style = map.getStyle();
-  style.sprite = "https://geolonia.github.io/office-area-map/icons/basic";
-  map.setStyle(style);
-
   map.on("load", () => {
     map.addSource("spots", {
       type: "geojson",
@@ -27,6 +23,10 @@ const main = async () => {
     map.addLayer(clusterLayer);
     map.addLayer(clusterCountLayer);
     map.addLayer(spotLabelLayer);
+
+    const style = map.getStyle();
+    style.sprite = "https://geolonia.github.io/office-area-map/icons/basic";
+    map.setStyle(style);
 
     map.on("click", "spots-cluster-layer", (e) => {
       const features = map.queryRenderedFeatures(e.point, {
