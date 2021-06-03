@@ -40,12 +40,19 @@ export const spotsLayer = {
   },
 };
 
-export const labelLayer = {
+export const spotLabelLayer = {
   id: "spots-label-layer",
   type: "symbol",
   source: "spots",
   layout: {
     "text-field": "{名称}",
     "text-font": ["Noto Sans Regular"],
+    "text-variable-anchor": ["top", "bottom", "left", "right"],
+    "text-radial-offset": 0.5,
+    "text-justify": "auto",
+    "text-size": 12,
+    "text-anchor": "top",
+    "text-max-width": 12,
+    "text-allow-overlap": false,
   },
 };

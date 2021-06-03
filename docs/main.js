@@ -2,17 +2,15 @@ import {
   clusterLayer,
   clusterCountLayer,
   spotsLayer,
-  labelLayer,
+  spotLabelLayer,
 } from "./layers.js";
 import { csv2geojson } from "./util.js";
 
-const spreadsheetCSVExportUrl =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vScMm_fKfKVravIvXN3NnG9gRRdsti00wEWjTWfebqe8P9uxKMIsn5pcNE2dLDSf3ac8Udm3RydkMw0/pub?gid=0&single=true&output=csv";
+// const spreadsheetCSVExportUrl =
+//   "https://docs.google.com/spreadsheets/d/e/2PACX-1vScMm_fKfKVravIvXN3NnG9gRRdsti00wEWjTWfebqe8P9uxKMIsn5pcNE2dLDSf3ac8Udm3RydkMw0/pub?gid=0&single=true&output=csv";
 
 const fetchDataAsGeoJSON = () => {
-  return fetch(spreadsheetCSVExportUrl)
-    .then((res) => res.text())
-    .then((csv) => csv2geojson(csv));
+  return fetch("./data.geojson").then((res) => res.json());
 };
 
 const main = async () => {
@@ -30,7 +28,7 @@ const main = async () => {
   map.addLayer(clusterLayer);
   map.addLayer(clusterCountLayer);
   map.addLayer(spotsLayer);
-  map.addLayer(labelLayer);
+  map.addLayer(spotLabelLayer);
 
   map.on("click", "spots-cluster-layer", (e) => {
     const features = map.queryRenderedFeatures(e.point, {
