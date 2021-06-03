@@ -15,9 +15,14 @@
     </style>
 </head>
 <body>
-    <div class="geolonia" id="map" data-mask-geojson="./tokyo.geojson"></div>
+    <div
+        class="geolonia"
+        id="map"
+        data-mask-geojson="./tokyo.geojson"
+        data-hash="on"
+    ></div>
     <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=YOUR-API-KEY"></script>
     <script src="https://geolonia.github.io/mask-plugin/mask-plugin.min.js"></script>
-    <script src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
