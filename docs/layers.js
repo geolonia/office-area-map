@@ -34,7 +34,7 @@ export const spotLabelLayer = {
     "text-field": "{名称}",
     "text-font": ["Noto Sans Regular"],
     "text-variable-anchor": ["top", "bottom", "left", "right"],
-    "text-radial-offset": 1,
+    "text-radial-offset": 1.5,
     "text-justify": "auto",
     "text-size": 12,
     "text-anchor": "top",
