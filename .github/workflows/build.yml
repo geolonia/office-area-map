@@ -24,16 +24,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Build icons
         run: |
-          npm install
+          yarn
           npm run build
       - name: Clean repo
         run: |
           git checkout --orphan gh-pages
           git rm -rf . > /dev/null 2>&1
-      - name: load the built
-        uses: actions/download-artifact@v2
-        with:
-          name: the-built
       - name: Setup and deploy Github Pages
         run: |
           rm -rf dist
