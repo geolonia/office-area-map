@@ -31,6 +31,7 @@ jobs:
         run: |
           git checkout --orphan gh-pages
           git rm -rf . > /dev/null 2>&1
+          rm node_modules
       - name: Setup and deploy Github Pages
         run: |
           mv ../docs/* .

@@ -3,7 +3,8 @@
     "@geolonia/more-sprites": "https://github.com/geolonia/more-sprites"
   },
   "scripts": {
-    "build": "rimraf ./docs/icons && node ./node_modules/@geolonia/more-sprites/src/cli.js basic ./src > ./docs/basic.zip && unzip -d docs ./docs/basic.zip && rm docs/basic.zip"
+    "postinstall": "pushd node_modules/@geolonia/more-sprites && npm install",
+    "build": "rimraf ./docs/icons && node ./node_modules/@geolonia/more-sprites/src/cli.js basic ./src > ./docs/basic.zip && unzip -d docs ./docs/basic.zip"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
