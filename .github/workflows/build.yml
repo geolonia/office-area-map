@@ -24,6 +24,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Build icons
         run: |
+          npm install
           npm run build
       - name: Clean repo
         run: |
