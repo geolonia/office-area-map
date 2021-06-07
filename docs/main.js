@@ -1,9 +1,9 @@
 import { clusterLayer, clusterCountLayer, spotLabelLayer } from "./layers.js";
-// import { csv2geojson } from "./util.js";
 
-// const spreadsheetCSVExportUrl =
-//   "https://docs.google.com/spreadsheets/d/e/2PACX-1vScMm_fKfKVravIvXN3NnG9gRRdsti00wEWjTWfebqe8P9uxKMIsn5pcNE2dLDSf3ac8Udm3RydkMw0/pub?gid=0&single=true&output=csv";
-
+/**
+ * ?debug=trueとした時にローカルに存在するスプライトのURLを返します
+ * @returns {string} スプライトのURL
+ */
 const detectSprite = () => {
   const urlSearchParams = new URLSearchParams(location.search);
   const debug = (urlSearchParams.get("debug") || "").toUpperCase() === "TRUE";
@@ -12,10 +12,17 @@ const detectSprite = () => {
     : "https://geolonia.github.io/office-area-map/icons/basic_ex";
 };
 
+/**
+ * GeoJSON だと期待されるデータを取得します
+ * @returns {object}
+ */
 const fetchDataAsGeoJSON = () => {
   return fetch("./data.geojson").then((res) => res.json());
 };
 
+/**
+ * エントリポイント
+ */
 const main = async () => {
   const geojsonObject = await fetchDataAsGeoJSON();
   const map = new window.geolonia.Map("#map");
@@ -33,13 +40,13 @@ const main = async () => {
     map.addLayer(clusterCountLayer);
     map.addLayer(spotLabelLayer);
 
-    // wait until style load
     setTimeout(() => {
       const style = map.getStyle();
       style.sprite = detectSprite();
       map.setStyle(style);
     }, 500);
 
+    // クラスタをクリックした時のスナップの動作
     map.on("click", "spots-cluster-layer", (e) => {
       const features = map.queryRenderedFeatures(e.point, {
         layers: ["spots-cluster-layer"],

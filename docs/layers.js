@@ -1,3 +1,6 @@
+/**
+ * クラスター表示のレイヤーとそのスタイルの定義
+ */
 export const clusterLayer = {
   id: "spots-cluster-layer",
   source: "spots",
@@ -10,6 +13,9 @@ export const clusterLayer = {
   },
 };
 
+/**
+ * クラスター表示内の数字ラベルのレイヤーとそのスタイルの定義
+ */
 export const clusterCountLayer = {
   id: "cluster-count-layer",
   type: "symbol",
@@ -25,6 +31,9 @@ export const clusterCountLayer = {
   },
 };
 
+/**
+ * スポットの表示のレイヤーとそのスタイルの定義
+ */
 export const spotLabelLayer = {
   id: "spots-label-layer",
   type: "symbol",
