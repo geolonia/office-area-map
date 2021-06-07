@@ -8,8 +8,8 @@ const detectSprite = () => {
   const urlSearchParams = new URLSearchParams(location.search);
   const debug = (urlSearchParams.get("debug") || "").toUpperCase() === "TRUE";
   return debug
-    ? location.origin + location.pathname + "/icons/basic"
-    : "https://geolonia.github.io/office-area-map/icons/basic";
+    ? location.origin + location.pathname + "/icons/basic_ex"
+    : "https://geolonia.github.io/office-area-map/icons/basic_ex";
 };
 
 const fetchDataAsGeoJSON = () => {
