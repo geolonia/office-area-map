@@ -39,7 +39,7 @@ export const spotLabelLayer = {
   type: "symbol",
   source: "spots",
   layout: {
-    "icon-image": "{カテゴリ}",
+    "icon-image": "{アイコン}",
     "text-field": "{名称}",
     "text-font": ["Noto Sans Regular"],
     "text-variable-anchor": ["top", "bottom", "left", "right"],
