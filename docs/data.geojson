@@ -64,11 +64,11 @@
         "カテゴリ": "office",
         "アイコン": "geolonia",
         "名称": "Geolonia",
-        "住所": "東京都豊島区巣鴨1-21-9"
+        "住所": ""
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [35.7101, 139.8107]
+        "coordinates": [139.8107, 35.7101]
       }
     }
   ]
